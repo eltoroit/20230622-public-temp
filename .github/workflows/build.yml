@@ -18,49 +18,17 @@ jobs:
         with:
           node-version: 18.x
 
-      - name: Find files (General)
-        run: |
-          find . -name index.html 
-          find . -name renderer.js
-
-  compileLWC:
-    name: Compile LWC and copy files to Electron
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: LWR
-    steps:
-      - name: Install Node.js, NPM and Yarn
-        uses: actions/setup-node@v1
-        with:
-          node-version: 18.x
-
-      - name: Find files (LWR-BEFORE)
+      - name: Find files (LWR)
         run: |
           find . -name index.html 
           find . -name renderer.js
 
       - name: Compile LWR
+        working-directory: LWR
         run: npm run build
 
-      - name: Find files (LWR-AFTER)
-        run: |
-          find . -name index.html 
-          find . -name renderer.js
-
-  compileElectron:
-    name: Compile LWC and copy files to Electron
-    runs-on: ubuntu-latest
-    defaults:
-      run:
+      - name: Find files (ELECTRON)
         working-directory: ELECTRON
-    steps:
-      - name: Install Node.js, NPM and Yarn
-        uses: actions/setup-node@v1
-        with:
-          node-version: 18.x
-
-      - name: Find files (ELECTRON-BEFORE)
         run: |
           find . -name index.html 
           find . -name renderer.js
