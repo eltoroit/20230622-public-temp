@@ -3,7 +3,7 @@ const path = require("path");
 const { app, BrowserWindow, ipcMain } = require("electron");
 
 let settings = {};
-(async () => {
+(() => {
   let tmp = require("./env.json");
   settings = { ...tmp.shared, ...tmp[process.platform] };
   console.log(settings);
@@ -23,7 +23,12 @@ const createWindow = () => {
 };
 
 app.whenReady().then(() => {
-  ipcMain.handle("ping", () => settings.ioserver);
+  ipcMain.handle("ping", () =>
+    JSON.stringify({
+      settings,
+      process: JSON.parse(JSON.stringify(process)),
+    })
+  );
   createWindow();
 
   app.on("activate", () => {
