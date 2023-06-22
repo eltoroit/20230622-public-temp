@@ -2,7 +2,12 @@
 const path = require("path");
 const { app, BrowserWindow, ipcMain } = require("electron");
 
-const settings = require("./env.json");
+let settings = {};
+(async () => {
+  let tmp = require("./env.json");
+  settings = { ...tmp.shared, ...tmp[process.platform] };
+  console.log(settings);
+})();
 
 const createWindow = () => {
   const win = new BrowserWindow({

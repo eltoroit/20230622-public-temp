@@ -21,7 +21,7 @@
     "appId": "com.tralhead-academy.computer-tester",
     "productName": "Computer Tester For Trailhead Academy Events",
     "mac": {
-      "category": "public.app-category.lifestyle"
+      "category": "public.app-category.utilities"
     },
     "dmg": {
       "icon": false
