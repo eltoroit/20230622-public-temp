@@ -2,8 +2,8 @@
 
 ## Links
 
-1. https://github.com/jsoma/action-electron-forge
-2. https://www.electron.build/
+1. https://www.electron.build/
+2. https://github.com/jsoma/action-electron-forge
 3. https://samuelmeuli.com/blog/2019-04-07-packaging-and-publishing-an-electron-app/
 
 ## Notes
