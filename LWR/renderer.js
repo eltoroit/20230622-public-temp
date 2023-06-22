@@ -7,5 +7,4 @@ const func = async () => {
   ta.appendChild(document.createTextNode(response));
   document.body.appendChild(ta);
 };
-
 func();
