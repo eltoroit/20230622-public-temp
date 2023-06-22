@@ -49,5 +49,8 @@ jobs:
           copy ".\dist\Rel*.txt" ".\bin"
           git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
           git config --global user.email "andresperezf@yahoo.com"
+          git status
           git add .
+          git status
           git commit -m "Built"
+          git status
