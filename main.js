@@ -1,5 +1,6 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
+require("dotenv").config();
 const path = require("path");
+const { app, BrowserWindow, ipcMain } = require("electron");
 
 const createWindow = () => {
   const win = new BrowserWindow({
@@ -15,7 +16,7 @@ const createWindow = () => {
 };
 
 app.whenReady().then(() => {
-  ipcMain.handle("ping", () => "pong");
+  ipcMain.handle("ping", () => process.env.ioserver);
   createWindow();
 
   app.on("activate", () => {

@@ -14,3 +14,4 @@
 
 1. sudo npm install --global yarn
 2. yarn add electron-builder --dev
+3. 
