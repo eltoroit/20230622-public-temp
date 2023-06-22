@@ -38,7 +38,9 @@ jobs:
 
       # Must use Windows paths!
       - name: Build
-        run: echo "Hello World" > "dist\Release 0.0.0.txt"
+        run: |
+          mkdir dist
+          echo "Hello World" > "dist\Release 0.0.0.txt"
       - name: Test
         run: more "dist\Release 0.0.0.txt"
       - name: Release
