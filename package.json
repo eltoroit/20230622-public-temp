@@ -1,6 +1,6 @@
 {
   "name": "my-electron-app",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "App tester",
   "author": "Andres Perez (ELTOROIT)",
   "main": "main.js",
