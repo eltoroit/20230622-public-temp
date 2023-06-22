@@ -29,5 +29,11 @@
     "dmg": {
       "icon": false
     }
+  },
+  "publish": {
+    "GitHub": {
+      "provider": "github",
+      "releaseType": "release"
+    }
   }
 }
