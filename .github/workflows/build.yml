@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v1
 
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v1
@@ -26,31 +26,10 @@ jobs:
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
         with:
+          # GitHub token, automatically provided to the action
+          # (No need to define this secret in the repo settings)
           github_token: ${{ secrets.ELECTRON_BUILDER }}
+
+          # If the commit is tagged with a version (e.g. "v1.0.0"),
+          # release the app after building
           release: ${{ startsWith(github.ref, 'refs/tags/v') }}
-
-      - name: Export artifacts
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/v')
-        with:
-          files: |
-            dist/*.exe
-
-      # # Must use Windows paths!
-      # - name: Build
-      #   run: |
-      #     mkdir dist
-      #     echo "Hello World" > "dist\Release 0.0.0.txt"
-      # - name: Test
-      #   run: more "dist\Release 0.0.0.txt"
-      # - name: Release
-      #   if: startsWith(github.ref, 'refs/tags/v')
-      #   run: |
-      #     copy ".\dist\Rel*.txt" ".\bin"
-      #     git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
-      #     git config --global user.email "andresperezf@yahoo.com"
-      #     git status
-      #     git add .
-      #     git status
-      #     git commit -m "Built"
-      #     git status
