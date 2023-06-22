@@ -38,9 +38,9 @@ jobs:
 
       # Must use Windows paths!
       - name: Build
-        run: echo "Hello World" > dist\Release 0.0.0.txt
+        run: echo "Hello World" > "dist\Release 0.0.0.txt"
       - name: Test
-        run: cat dist\Release 0.0.0.txt
+        run: more "dist\Release 0.0.0.txt"
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/v')
