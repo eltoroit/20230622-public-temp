@@ -1,9 +1,10 @@
 {
   "name": "my-electron-app",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "App tester",
   "author": "Andres Perez (ELTOROIT)",
   "main": "main.js",
+  "repository": "https://github.com/eltoroit/20230622-public-temp",
   "scripts": {
     "start": "electron .",
     "postinstall": "electron-builder install-app-deps",
